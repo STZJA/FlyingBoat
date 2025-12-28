@@ -18,23 +18,23 @@ bool EndlessGameRun = true;
 
 
 void drawNewScreen() {
-	for (int y = 0; y < ScreenY; y++) {//ÏÈÉ¨Ã¿Ò»ĞĞ
-		if (y == 0)//µÚÒ»ĞĞ
+	for (int y = 0; y < ScreenY; y++) {//å…ˆæ‰«æ¯ä¸€è¡Œ
+		if (y == 0)//ç¬¬ä¸€è¡Œ
 		{
-			for (int x = 0; x < ScreenX; x++) {//É¨µÚÒ»ĞĞÃ¿Ò»¸ñ
-				GameScreen[y][x] = '#';//ÔÚÃ¿Ò»¸ñ»­¸ö#×÷Îª±ß½ç
+			for (int x = 0; x < ScreenX; x++) {//æ‰«ç¬¬ä¸€è¡Œæ¯ä¸€æ ¼
+				GameScreen[y][x] = '#';//åœ¨æ¯ä¸€æ ¼ç”»ä¸ª#ä½œä¸ºè¾¹ç•Œ
 			}
 		}
-		else//²»ÊÇµÚÒ»ĞĞ
+		else//ä¸æ˜¯ç¬¬ä¸€è¡Œ
 		{
-			for (int x = 0; x < ScreenX; x++)//É¨Ã¿Ò»ÁĞ
+			for (int x = 0; x < ScreenX; x++)//æ‰«æ¯ä¸€åˆ—
 			{
-				if (x == 0 || x == ScreenX - 1) {//ÔÚÃ¿Ò»ÁĞµÚÒ»¸ñºÍ×îºóÒ»¸ñ»­#
+				if (x == 0 || x == ScreenX - 1) {//åœ¨æ¯ä¸€åˆ—ç¬¬ä¸€æ ¼å’Œæœ€åä¸€æ ¼ç”»#
 					GameScreen[y][x] = '#';
 				}
 				else
 				{
-					GameScreen[y][x] = ' ';//ÆäËûµØ·½·Å¿Õ¸ñ
+					GameScreen[y][x] = ' ';//å…¶ä»–åœ°æ–¹æ”¾ç©ºæ ¼
 				}
 			}
 		}
@@ -44,12 +44,12 @@ void drawNewScreen() {
 	{
 		if (Bulletpool[i].isActive == true)
 		{
-			if (Bulletpool[i].BulletX > 0 && Bulletpool[i].BulletX < ScreenX && Bulletpool[i].BulletY>0)//ÅĞ¶Ï×Óµ¯ÔÚ²»ÔÚÓÎÏ··¶Î§ÄÚ
+			if (Bulletpool[i].BulletX > 0 && Bulletpool[i].BulletX < ScreenX && Bulletpool[i].BulletY>0)//åˆ¤æ–­å­å¼¹åœ¨ä¸åœ¨æ¸¸æˆèŒƒå›´å†…
 			{
-				GameScreen[Bulletpool[i].BulletY][Bulletpool[i].BulletX] = flyBullet::Bullet;//Éú³É×Óµ¯
+				GameScreen[Bulletpool[i].BulletY][Bulletpool[i].BulletX] = flyBullet::Bullet;//ç”Ÿæˆå­å¼¹
 			}
 		}
-	}//ÕâÒ»¸öforÑ­»·ÊÇÓÃÀ´Éú³É×Óµ¯µÄ
+	}//è¿™ä¸€ä¸ªforå¾ªç¯æ˜¯ç”¨æ¥ç”Ÿæˆå­å¼¹çš„
 	for (int i = 0; i < Max_Enemy; i++)
 	{
 		if (Enemypool[i].isActive == true)
@@ -58,7 +58,7 @@ void drawNewScreen() {
 				GameScreen[Enemypool[i].EnemyY][Enemypool[i].EnemyX] = Enemypool[i].EnemyDisplay;
 			}
 		}
-	}//ÕâÒ»¸öforÑ­»·ÊÇÉú³ÉµĞÈËµÄ
+	}//è¿™ä¸€ä¸ªforå¾ªç¯æ˜¯ç”Ÿæˆæ•Œäººçš„
 	for (int y = 0; y < ScreenY; y++) {
 		for (int x = 0; x < ScreenX; x++) {
 			bool hasEnemy = false;
@@ -92,7 +92,7 @@ void drawNewScreen() {
 						cout << WHITE << Enemypool[i].EnemyDisplay << RESET;
 						break;
 					}
-					break;//ÕÒµ½Ò»¸öµĞÈË¾ÍÌø³öÑ­»·
+					break;//æ‰¾åˆ°ä¸€ä¸ªæ•Œäººå°±è·³å‡ºå¾ªç¯
 				}
 			}
 			if (!hasEnemy)
@@ -100,25 +100,25 @@ void drawNewScreen() {
 				cout << GameScreen[y][x];
 			}
 		}
-		cout << endl;  // Ã¿ĞĞ½áÊøºó»»ĞĞ
+		cout << endl;  // æ¯è¡Œç»“æŸåæ¢è¡Œ
 
-	}//ÕâÒ»¸öforÑ­»·ÊÇ»­³öÃ¿Ò»ĞĞµÄÄÚÈİ
+	}//è¿™ä¸€ä¸ªforå¾ªç¯æ˜¯ç”»å‡ºæ¯ä¸€è¡Œçš„å†…å®¹
 	cout << "\nYour Life:" << life<<endl;
 	cout << "Your Score:" << Score << endl;
 	if (currentGameMode==Mode_Endless)
 	{
 		cout << "Time: " << gameTimeMinute << "min " << gameTimeSecond << "s" << endl;
 	}
-	cout << "A/D¿ØÖÆ·½Ïò QÍË³öÓÎÏ·" << endl;
+	cout << "A/Dæ§åˆ¶æ–¹å‘ Qé€€å‡ºæ¸¸æˆ" << endl;
 
-}//»æÖÆĞÂ»­Ãæ
+}//ç»˜åˆ¶æ–°ç”»é¢
 
 void updateGame() {
-	//ÉèÖÃÒ»¸öÖ¡¼ÆÊ±Æ÷£¨¼ÆËãÄÄÒ»Ö¡·¢Éä×Óµ¯£©£¨ÒÑÔÚbasic.cppÖĞ¶¨Òå£©
-	BulletFPS++;//Ã¿Ò»Ö¡+1
-	if (BulletFPS % 3 == 0)//Ã¿3Ö¡¾ÍÖ´ĞĞ
+	//è®¾ç½®ä¸€ä¸ªå¸§è®¡æ—¶å™¨ï¼ˆè®¡ç®—å“ªä¸€å¸§å‘å°„å­å¼¹ï¼‰ï¼ˆå·²åœ¨basic.cppä¸­å®šä¹‰ï¼‰
+	BulletFPS++;//æ¯ä¸€å¸§+1
+	if (BulletFPS % 3 == 0)//æ¯3å¸§å°±æ‰§è¡Œ
 	{
-		for (int i = 0; i < Max_Bullet; i++) {//±éÀú×Óµ¯Êı×éÖĞÃ¿Ò»¸öÔªËØ
+		for (int i = 0; i < Max_Bullet; i++) {//éå†å­å¼¹æ•°ç»„ä¸­æ¯ä¸€ä¸ªå…ƒç´ 
 			if (Bulletpool[i].isActive == false)
 			{
 				Bulletpool[i].isActive = true;
@@ -127,7 +127,7 @@ void updateGame() {
 				break;
 			}
 		}
-		BulletFPS = 0;//ÖØÖÃÒ»ÏÂÖ¡¼ÆÊ±Æ÷
+		BulletFPS = 0;//é‡ç½®ä¸€ä¸‹å¸§è®¡æ—¶å™¨
 	}
 	for (int i = 0; i < Max_Bullet; i++)
 	{
@@ -196,7 +196,7 @@ void updateGame() {
 	double currentTime = difftime(time(nullptr), gameTimeStart);
 	gameTimeMinute = (int)currentTime / 60;
 	gameTimeSecond = (int)currentTime % 60;
-}//ÓÎÏ·×´Ì¬¸üĞÂ
+}//æ¸¸æˆçŠ¶æ€æ›´æ–°
 
 void keyboardMove() {
 	if (_kbhit())
@@ -232,31 +232,31 @@ void keyboardMove() {
 
 void EndlessMode() {
 	currentGameMode = Mode_Endless;
-	gameTimeStart = time(nullptr);//³õÊ¼Ê±¼ä
+	gameTimeStart = time(nullptr);//åˆå§‹æ—¶é—´
 	EndlessGameRun = true;
 	while (EndlessGameRun) {
+
 		RestartGame();
 		EndlessGameRun = true;
-		while (life > 0 && EndlessGameRun)
+		bool gameActive = true;
+		while (life > 0 && gameActive)
 		{
 			cleanScreen();
 			keyboardMove();
 			drawNewScreen();
 			Sleep(50);
 			updateGame();
+			if (!EndlessGameRun) {
+				gameActive = false;
+			}
 		}
-		if (!EndlessGameRun)
+		if (life <= 0)
 		{
-			break;
-		}
-		else if (life <= 0)
-		{
-
 			cleanScreen();
 			cout << "YOU DIED" << endl;
 			cout << "YOUR SCORE: " << Score << endl;
-			cout << "°´QÍË³öÓÎÏ·" << endl;
-			cout << "°´RÖØĞÂ¿ªÊ¼" << endl;
+			cout << "æŒ‰Qé€€å‡ºæ¸¸æˆ" << endl;
+			cout << "æŒ‰Ré‡æ–°å¼€å§‹" << endl;
 		}
 		bool waitforInput = true;
 		while (waitforInput)
