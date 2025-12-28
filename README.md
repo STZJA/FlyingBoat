@@ -10,11 +10,12 @@
 ## 简单演示
 
 标题页面：
-![演示](./gif/GIF1.gif)
+![标题](https://github.com/STZJA/-/blob/main/gif/GIF1.gif)
 
 关卡模式：
-![演示](./gif/story2.gif)
-![演示](./gif/boss.gif)
+![关卡](https://github.com/STZJA/-/blob/main/gif/story2.gif)
+![boss关](https://github.com/STZJA/-/blob/main/gif/boss.gif)
 
 无尽模式：
-![演示](./gif/e2.gif)
+
+![无尽模式](https://github.com/STZJA/-/blob/main/gif/e2.gif)
